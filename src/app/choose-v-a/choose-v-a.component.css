@@ -1,0 +1,66 @@
+/* Split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Control the left side */
+  .left {
+    left: 0;
+    background: linear-gradient(
+284deg
+, rgba(45,217,253,1) 0%, rgba(240,254,255,1) 100%);
+  }
+  
+  /* Control the right side */
+  .right {
+    right: 0;
+background: linear-gradient(284deg, rgba(240,254,255,1) 0%, rgba(45,253,153,1) 100%);
+  }
+  
+  /* If you want the content centered horizontally and vertically */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  /* Style the image inside the centered container, if needed */
+  .centered img {
+    border-radius: 50%;
+  }
+  .bg-imagea {
+    background-image: url('../imgs/car.png');
+  
+    background-position: center;
+  }
+
+  .bg-imagev {
+    background-image: url('../imgs/suitcase.png');
+    background-position: center;
+  }
+  
+  .btn-automobiliste{
+    background-color: #46DEFE;
+    color: white;
+  }
+  .btn-Voyageur{
+    background-color: #43FDA5;
+    color: white;
+    
+  }
+
+  .content-NonApprouve{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }

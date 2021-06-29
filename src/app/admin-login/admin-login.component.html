@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-6">
+            <div class="card1 pb-5">
+                
+      <div class="bg-imageadmin" style="width: 400px; height: 500px;"></div>
+
+            </div>
+        </div>
+        <div class="col-lg-6">
+         <form>
+            <div class="card2 card border-0 px-4 py-5">
+  
+              <div class="row px-3 mb-4">
+              </div>
+              
+              <div class="row px-3 mb-4">
+              </div>
+              
+              <div class="row px-3 mb-4">
+              </div>
+                <div class="row px-3"> 
+                    <label class="mb-1">
+                        <h6 class="mb-0 text-sm">UserName</h6>
+                    </label> 
+                    <input class="mb-4" type="text" name="username" [(ngModel)]="username" placeholder="User Name" > </div>
+                <div class="row px-3"> 
+                    <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Password</h6>
+                    </label> 
+                    <input type="password" name="password" [(ngModel)]="password" placeholder="Password"> </div>
+                <div class="row px-3 mb-4">
+                </div>
+                <div class="row mb-3 px-3">
+                   <button (click)=checkLogin() class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+  
+  </div>

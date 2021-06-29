@@ -1,0 +1,260 @@
+<!--
+
+=========================================================
+* Now UI Dashboard - v1.5.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/now-ui-dashboard
+* Copyright 2019 Creative Tim (http://www.creative-tim.com)
+
+* Designed by www.invisionapp.com Coded by www.creative-tim.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Let's Go Dashboard
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS Files -->
+
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="orange">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <a href="/admin/home" class="simple-text logo-mini">
+          LG
+        </a>
+        <a href="/admin/home" class="simple-text logo-normal">
+          Let's Go
+        </a>
+      </div>
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+            <a href="/admin/home">
+              <i class="now-ui-icons design_app"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/annonce">
+              <i class="now-ui-icons location_pin"></i>
+              <p>Liste des annonces</p>
+            </a>
+          </li>
+          <li class="active ">
+            <a href="/admin/internaute">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>Liste des internautes</p>
+            </a>
+          </li>
+          <li class="active-pro">
+            <a href="/admin/logout">
+              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+              <p>Log Out</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel" id="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand">Dashboard</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="now-ui-icons users_single-02"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Some Actions</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="/admin/logout">Log Out</a>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="panel-header panel-header-sm">
+      </div>
+      <div class="content" id="main-container">
+        <div class="row">
+
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title"> Internautes</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        CIN
+                      </th>
+                      <th>
+                        Nom
+                      </th>
+                      <th>
+                        Prenom
+                      </th>
+                      <th>
+                        Date Naissance
+                      </th>
+                      <th>
+                        Sexe
+                      </th>
+                      <th>
+                        Tel
+                      </th>
+                      <th class="text-right">
+                        Action
+                      </th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let inter of internautes">
+                        <td>{{inter?.cin}}</td>
+                        <td>{{inter?.nom}}</td>
+                        <td>{{inter?.prenom}}</td>
+                        <td>{{inter?.date_naiss | date:'yyyy-MM-dd'}}</td>
+                        <td>{{inter?.sexe}}</td>
+                        <td>{{inter?.tel}}</td>
+                        <td class="text-right">
+                            <button *ngIf="inter?.verifie == 'En Attend'" (click)="onOpenModal(inter,'approuve')" class="btn-gray btn-Approve mr-2" data-dismiss="modal"><i class="fa fa-check-circle mr-2"></i></button>
+                            <button *ngIf="inter?.verifie == 'En Attend'" (click)="onOpenModal(inter,'rejete')" class="btn-gray btn-Reject mr-2" data-dismiss="modal"><i class="fa fa-times-circle mr-2"></i></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <footer class="footer">
+        <div class=" container-fluid ">
+          <nav>
+            <ul>
+              <li>
+                <a href="/admin/home">
+                  Let's Go
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright" id="copyright">
+            &copy; <script>
+              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+            </script>, Designed by <a href="/admin/home" target="_blank">Groupe 6</a>. Coded by <a href="/admin/home" target="_blank">Groupe 6</a>.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../adminAssets/assets/js/core/jquery.min.js"></script>
+  <script src="../adminAssets/assets/js/core/popper.min.js"></script>
+  <script src="../adminAssets/assets/js/core/bootstrap.min.js"></script>
+  <script src="../adminAssets/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../adminAssets/assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../adminAssets/assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../adminAssets/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../adminAssets/assets/demo/demo.js"></script>
+
+
+  <!-- delete Annonce Modal -->
+<div class="modal fade" id="rejeteInternauteModal" tabindex="-1" role="dialog" aria-labelledby="rejeteInternauteModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="rejeteInternauteModalLabel">Rejete Internaute</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to approuve this Internaute {{approuveInternaute?.nom}} 
+        {{approuveInternaute?.prenom}} ?</p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button (click)="onUpdateVerifieInternaute('Rejete',rejeteInternaute?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- approuve Annonce Modal -->
+<div class="modal fade" id="approuveInternauteModal" tabindex="-1" role="dialog" aria-labelledby="approuveInternauteModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="approuveInternauteModalLabel">Approuve Internaute</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to approuve this Internaute {{approuveInternaute?.nom}} 
+        {{approuveInternaute?.prenom}} ?</p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button (click)="onUpdateVerifieInternaute('Approuve',approuveInternaute?.id)" class="btn btn-success" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  
+</body>
+
+</html>

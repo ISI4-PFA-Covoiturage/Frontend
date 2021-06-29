@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row no-gutter">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row" style="justify-content: center;">
+              <div class="card2 card border-0 px-4 py-5">
+                <h1 class="login-heading mb-4">Content de te revoir!</h1>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                        <div class="row px-3"> 
+                            <label class="mb-1">
+                                <h3 class="mb-0 text-sm">Email</h3>
+                            </label> 
+                            <input class="form-control bg-white  border-md" [formControlName]="'username'" required type="text" name="email" placeholder="votre addresse email"> 
+                        </div>
+                        <div class="row px-3"> 
+                            <label class="mb-1">
+                                <h3 class="mb-0 text-sm">Password</h3>
+                            </label> 
+                            <input class="form-control bg-white  border-md" type="password" [formControlName]="'password'" required name="password" placeholder=" votre mot de passe"> 
+                        </div>
+                        <div class="row px-3 mb-4">
+                        </div>
+                        <div class="row mb-3 px-3">
+                            <button  [disabled]="!loginForm.valid" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+                        </div>
+                        <div class="row mb-4 px-3"> <h3><small class="font-weight-bold">Vous n'avez pas de compte ? <a href="/signup" class="text-danger "> S'inscrire </a></small></h3> </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

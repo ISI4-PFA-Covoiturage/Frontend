@@ -1,0 +1,26 @@
+
+<div *ngIf="infoInternaute?.verifie !='Approuve'" class="content-NonApprouve">
+  <h1>
+    Verification du compte En attente par l'administrateur
+
+  </h1>
+</div>
+<div *ngIf="infoInternaute?.verifie=='Approuve'">
+  <div class="split left">
+    <div class="centered">
+      <div class="bg-imagev " style="width: 400px; height: 500px;"></div>
+      <h1>Voyageur</h1>
+      <a href="voyageur" class="btn btn-Voyageur">Voyageur</a>
+
+    </div>
+  </div>
+  
+  <div class="split right">
+    <div class="centered">
+      <div class="bg-imagea" style="width: 500px; height: 400px;"></div>
+      <h1>Automobiliste</h1>
+      <a href="automobiliste" class="btn btn-automobiliste">Automobiliste</a>
+      
+    </div>
+  </div>
+</div>
